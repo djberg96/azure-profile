@@ -70,8 +70,10 @@ module Azure
       attr_accessor :default
       attr_accessor :registered_providers
       attr_accessor :environment_name
-      attr_accessor :management_end_point
+      attr_accessor :management_endpoint
       attr_accessor :source
+
+      DEFAULT_MANAGEMENT_ENDPOINT = "https://management.core.windows.net"
 
       def initialize
         yield self if block_given?
@@ -111,7 +113,7 @@ module Azure
             s.subscription_name = sub['name']
             s.default = sub['isDefault'] || false
             s.environment_name = sub['environmentName']
-            s.management_end_point = sub['managementEndpointUrl']
+            s.management_endpoint = sub['managementEndpointUrl']
             s.registered_providers = sub['registeredProviders']
             s.management_certificate = sub['managementCertificate']['cert'] +
               sub['managementCertificate']['key']
