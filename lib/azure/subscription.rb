@@ -12,6 +12,37 @@ module Azure
 
     attr_reader :subscriptions
 
+    # Creates and returns a new Azure::Profile object. This will attempt to
+    # gather subscription information based on the options you pass to it.
+    #
+    # If you pass no options, or the :json_file option, it will try to read
+    # and parse your azureProfile.json file. By default it will look for this
+    # file in $HOME/.azure, but you may specify a different directory.
+    #
+    # If you pass the :settings_file option, it will use nokogiri to parse
+    # your publishsettings file. You must include the full path if you use
+    # this option.
+    #
+    # If you pass the :username and :password options, then it will attempt
+    # to download a publishsettings file from Microsoft to your $HOME/.azure
+    # directory, and will then parse that.
+    #
+    # Examples:
+    #
+    #   require 'azure/subscription'
+    #
+    #   # Default to using json file.
+    #   prof = Azure::Profile.new
+    #   p prof.subscriptions
+    #
+    #   # Use a publishsettings file
+    #   prof = Azure::Profile.new(:settings_file => "/Users/foo/azure.publishsettings")
+    #   p prof.subscriptions
+    #
+    #   # Use your MS credentials
+    #   prof = Azure::Profile.new(:username => 'foo', :password => 'xxxxx')
+    #   p prof.subscriptions
+    #
     def initialize(options = {})
       @settings_file = options[:settings_file]
       @json_file     = options[:json_file] || "~/.azure/azureProfile.json"
