@@ -82,6 +82,9 @@ module Azure
 
     private
 
+    # Look for relevant environment variables. If they're found, then
+    # create a Subscription object using those.
+    #
     def get_env_info
       sub = nil
 
@@ -99,6 +102,9 @@ module Azure
       sub
     end
 
+    # Parses the Azure json profile file. This file should exist if you've
+    # ever used the command line interface.
+    #
     def parse_json_info
       data = IO.read(File.expand_path(@json_file))
       json = JSON.parse(data, :create_additions => false)
