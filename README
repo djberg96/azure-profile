@@ -14,3 +14,8 @@ prof = Azure::Profile.new(:file => '/path/to/publishsettingsfile')
 prof = Azure::Profile.new(:user => 'foo', :password => '12345')
 
 p prof.subscriptions
+p prof.default_subscription
+
+= Authors
+* Daniel Berger
+* Bronagh Sorota
