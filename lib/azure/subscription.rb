@@ -1,6 +1,7 @@
 require 'json'
 require 'nokogiri'
 require 'openssl'
+require 'base64'
 require 'net/http'
 
 module Azure
@@ -54,7 +55,13 @@ module Azure
       env = get_env_info
 
       @subscriptions << env if env
-      @subscriptions << parse_json_info
+
+      if @settings_file
+        @subscriptions << parse_settings_file
+      else
+        @subscriptions << parse_json_info
+      end
+
       @subscriptions.flatten!
     end
 
@@ -98,6 +105,26 @@ module Azure
         sub.management_endpoint = ENV['AZURE_MANAGEMENT_ENDPOINT']
         sub.source = "environment variables"
       end
+
+      sub
+    end
+
+    # Parses a publishsettings file, if provided or downloaded.
+    #
+    def parse_settings_file
+      doc = Nokogiri::XML(File.open(@settings_file))
+      xml = doc.xpath("//PublishData//PublishProfile//Subscription")
+
+      sub = Subscription.new
+
+      sub.management_endpoint = xml['ServiceManagementUrl']
+      sub.subscription_id = xml['Id']
+      sub.subscription_name = xml['Name']
+      sub.source = @settings_file
+
+      raw = xml['ManagementCertificate']
+      pkcs = OpenSSL::PKCS12.new(Base64.decode64(cert))
+      sub.management_certificate = pkcs.certificate.to_pem + pkcs.key.to_pem
 
       sub
     end
