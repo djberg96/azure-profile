@@ -52,6 +52,11 @@ module Azure
       @subscriptions = parse_json_info
     end
 
+    # Return the default subscription for the profile.
+    def default_subscription
+      @subscriptions.detect{ |s| s.default }
+    end
+
     class Subscription
       attr_accessor :subscription_id
       attr_accessor :subscription_name
@@ -96,5 +101,6 @@ end
 
 if $0 == __FILE__
   prof = Azure::Profile.new
-  p prof.subscriptions
+  #p prof.subscriptions
+  p prof.default_subscription.subscription_name
 end
