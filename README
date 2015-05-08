@@ -1,0 +1,14 @@
+= Description
+A library for handling Azure credential configuration.
+
+= Synopsis
+require 'azure/subscription'
+
+# Assumes ~/.azure/azureProfile.json exists
+asub = Azure::Subscription.new
+
+# Uses an existing publish settings file
+asub = Azure::Subscription.new(:file => '/path/to/publishsettingsfile')
+
+# Pulls down a publishsettings file using your Azure account
+asub = Azure::Subscription.new(:user => 'foo', :password => '12345')
