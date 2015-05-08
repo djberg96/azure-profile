@@ -49,7 +49,13 @@ module Azure
       @username      = options[:username]
       @password      = options[:password]
 
-      @subscriptions = parse_json_info
+      @subscriptions = []
+
+      env = get_env_info
+
+      @subscriptions << env if env
+      @subscriptions << parse_json_info
+      @subscriptions.flatten!
     end
 
     # Return the default subscription for the profile.
@@ -65,6 +71,7 @@ module Azure
       attr_accessor :registered_providers
       attr_accessor :environment_name
       attr_accessor :management_end_point
+      attr_accessor :source
 
       def initialize
         yield self if block_given?
@@ -72,6 +79,23 @@ module Azure
     end
 
     private
+
+    def get_env_info
+      sub = nil
+
+      if ENV['AZURE_MANAGEMENT_CERTIFICATE'] ||
+         ENV['AZURE_MANAGEMENT_ENDPOINT'] ||
+         ENV['AZURE_SUBSCRIPTION_ID']
+      then
+        sub = Subscription.new
+        sub.subscription_id = ENV['AZURE_SUBSCRIPTION_ID']
+        sub.management_certificiate = ENV['AZURE_MANAGEMENT_CERTIFICATE']
+        sub.management_endpoint = ENV['AZURE_MANAGEMENT_ENDPOINT']
+        sub.source = "environment variables"
+      end
+
+      sub
+    end
 
     def parse_json_info
       data = IO.read(File.expand_path(@json_file))
@@ -82,6 +106,7 @@ module Azure
       if json['subscriptions']
         json['subscriptions'].each{ |sub|
           array << Subscription.new do |s|
+            s.source = @json_file
             s.subscription_id = sub['id']
             s.subscription_name = sub['name']
             s.default = sub['isDefault'] || false
@@ -103,4 +128,5 @@ if $0 == __FILE__
   prof = Azure::Profile.new
   #p prof.subscriptions
   p prof.default_subscription.subscription_name
+  p prof.default_subscription.source
 end
