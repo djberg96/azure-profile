@@ -12,5 +12,6 @@ class Subscription
 
   def initialize
     yield self if block_given?
+    @management_endpoint ||= DEFAULT_MANAGEMENT_ENDPOINT
   end
 end
