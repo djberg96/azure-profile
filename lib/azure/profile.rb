@@ -3,7 +3,6 @@ require 'json'
 require 'nokogiri'
 require 'openssl'
 require 'base64'
-require 'mechanize'
 
 require_relative 'profile/subscription'
 
