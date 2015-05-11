@@ -1,20 +1,29 @@
 = Description
 A library for handling Azure credential configuration.
 
+= Prerequisites
+* openssl
+* json
+* nokogiri
+* mechanize
+
 = Synopsis
-require 'azure/subscription'
+require 'azure/profile'
 
 # Assumes ~/.azure/azureProfile.json exists
 prof = Azure::Profile.new
 
 # Uses an existing publish settings file
-prof = Azure::Profile.new(:file => '/path/to/publishsettingsfile')
+prof = Azure::Profile.new(:settings_file => '/path/to/publishsettingsfile')
 
 # Pulls down a publishsettings file using your Azure account
 prof = Azure::Profile.new(:user => 'foo', :password => '12345')
 
 p prof.subscriptions
 p prof.default_subscription
+
+= Acknowledgements
+  This library possible courtesy of Red Hat, Inc.
 
 = Authors
 * Daniel Berger
