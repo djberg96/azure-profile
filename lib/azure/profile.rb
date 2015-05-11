@@ -9,11 +9,19 @@ require_relative 'profile/subscription'
 
 module Azure
   class Profile
+    # The path to your publishsettings file
     attr_accessor :settings_file
+
+    # The path to your azureProfile.json file
     attr_accessor :json_file
+
+    # Username for use with publishsettings file retrieval
     attr_accessor :username
+
+    # Password for use with publishsettings file retrieval
     attr_accessor :password
 
+    # A list of subscriptions associated with your profile
     attr_reader :subscriptions
 
     # Creates and returns a new Azure::Profile object. This will attempt to
