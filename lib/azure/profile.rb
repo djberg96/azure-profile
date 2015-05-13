@@ -23,13 +23,24 @@ module Azure
     # Creates and returns a new Azure::Profile object. This will attempt to
     # gather subscription information based on the options you pass to it.
     #
-    # If you pass no options, or the :json_file option, it will try to read
-    # and parse your azureProfile.json file. By default it will look for this
-    # file in $HOME/.azure, but you may specify a different directory.
+    # If you pass no options it will attempt to use the relevant environment
+    # variables to gather information. Specifically, it will look for the
+    # AZURE_MANAGEMENT_CERTIFICATE, AZURE_MANAGEMENT_ENDPOINT and the
+    # AZURE_SUBSCRIPTION_ID environment variables.
+    #
+    # If any of those are not set, or if you specify the :json_file option, it
+    # will try to read and parse your azureProfile.json file. By default it
+    # will look for this file in $HOME/.azure, but you may specify a different
+    # directory.
     #
     # If you pass the :settings_file option, it will use nokogiri to parse
     # your publishsettings file. You must include the full path if you use
     # this option.
+    #
+    # If you pass the :content option, which can be a string or an IO object,
+    # it will parse the the content as a string. This assumes XML format.
+    #
+    # FUTURE PLANS
     #
     # If you pass the :username and :password options, then it will attempt
     # to download a publishsettings file from Microsoft to your $HOME/.azure
@@ -39,7 +50,7 @@ module Azure
     #
     #   require 'azure/subscription'
     #
-    #   # Default to using json file.
+    #   # Default to using env variables or json file.
     #   prof = Azure::Profile.new
     #   p prof.subscriptions
     #
