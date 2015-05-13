@@ -1,0 +1,17 @@
+{
+    "environments": [],
+    "subscriptions": [
+        {
+            "id": "b135322f-9d7e-4975-1234-237b85343c3c",
+            "name": "Free Trial",
+            "managementCertificate": {
+                "key": "-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEAtIdOgHPrIY/0miErcP7HsafhDVYS/kFMVbqKdeaoNot8Dg+9\r\ngL73+593TUHPspbRlRJ3+84ONQwE7am3HVk/SkudgptSZSn5P9gS+W+X4SKO4FG5\r\n0Mc4sNgnx8JMtGhYPTk4CTXVRju7gCZFsvtWPWx8uCCEHCszC+JZYMspNvs2Shzy\r\nTYb1C3mLmbJf9y/uTIggQpZnq8/TJZanadL+yGGFaP6bmqyHb4mx9gn5sk0tF1/Q\r\nr+HeFag6jwVbiwuIFIVDWqvsFjJ6VHunQcNLe9t5pEMjfpnPJkQ8geYNVLcwvU0w\r\neHgKe9N4YO9+VCJKxvgWMq41Rw99xw0M1RgdUQIDAQABAoIBABYxXJGOvoj8lha1\r\nDW65iYHR6CkgK9tRGnHfCeq60XLMJLLjVTnssBZhKRTIqoBzST5E3BZq40T67mer\r\noZjUagMHhuxhjQhl96/VL6b1pKOPAKa7sUbE2PeniQNmA9E5UyCqpjR+p1J4ISGc\r\nwtyBCJ3qNm5Zw/flCSRUvgVX0GAjXlyzjRLR6TbHYgCa4UmQg/nK8z6XR821HnrG\r\n6QVYZ7qkWTi1o9XDwl0lt6I65c5vx+CW9CoWhpjMk/RBQMDWbaUhwgw09xveXyRo\r\n3G2yClPnN+yO4DZ+jj9IeAZ4y4fdHbnXc+KiulNIxFY2v1933APKoESlVFtIBT+p\r\nZ4hybYkCgYEAwAv3dMq90/i0Zdjs3jiNXaayW2zURfu435VkdVmBIpOBDMEorPZU\r\n/gPjTW/IQxzn4S4SFpL1b3vQyGBknqzwMFInOTmZovkDcP8Hclfy4Fg1N+PAoiwX\r\n/js0Qy6iXzgZFyx3Icu/XaQwOqBe7hQcp7/bu01QChgo9c1wsByicpkCgYEA8KVp\r\nChN5Wk9j0sbXHx/efNODmvI4VpoJRjSkxF86RM8D7b+7IOSxAulcj/BXP2R8sWCW\r\ntdV8s3J+l0HPOnrHsQN5PskdFD/e72FowcVBADrS7Rs0y2bwGYmQyc2zE1idv1uN\r\nNa4GSHjt12CgBPD0SMEAoyjnF2le3tOTOoX6a3kCgYAWEwoNjaRGMiciMc4AOQXe\r\nxuNnaNn5dVaptHVIm9IhFE1YFvfC8cmRLQc6hmfBdxgcJPyFRb0aZGP6NEI8jupI\r\n05iYlktXlUHVAitr9DoBmYH8e5xPx7u2SD3Ynwqg4UTZCg5jfxTvAYldo8NloEAu\r\n8/mgzOEvV9mVb1jNlW0CuQKBgQCjnAIvLJBL+z/mFPQ7IAK3IWMPnHD7SBzYE4CW\r\nVhwanhiQstM6COHkFd6tqfzXh61TN1Uf6TawFj7E/aQzoThVPARZ0IgptUcPv01m\r\nuIJ58oRnWiDpzWGeKy46VdTTaWNOr6LxBREWgslJrlL9KQkc0cNqKqv6+dPbcUNe\r\n/aoFGQKBgEeXYDpEC11Y+WHaPWx/oRP2aMh9lSbRHINNdcc6uGSS9ywTb+ObJVgg\r\nYhjAZ04pb9wZLSmLLt2NDBC3OEIMl920Ah2OxVWNbvuglubqmtcdBJtCbyFDtfhr\r\nrHujJHJ+F4VSwo/fdHmVg53LG3Pdacte/IydqOp6SkcZS30ZPn/w\r\n-----END RSA PRIVATE KEY-----\n",
+                "cert": "-----BEGIN CERTIFICATE-----\nMIICxDCCAaygAwIBAgIQY4/XKHqDZo5JR5QZ8BHXCTANBgkqhkiG9w0BAQUFADAe\r\nMRwwGgYDVQQDExNXaW5kb3dzIEF6dXJlIFRvb2xzMB4XDTE1MDUwNjEzNDkyOFoX\r\nDTE2MDUwNjEzNDkyOFowHjEcMBoGA1UEAxMTV2luZG93cyBBenVyZSBUb29sczCC\r\nASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALSHToBz6yGP9JohK3D+x7Gn\r\n4Q1WEv5BTFW6inXmqDaLfA4PvYC+9/ufd01Bz7KW0ZUSd/vODjUMBO2ptx1ZP0pL\r\nnYKbUmUp+T/YEvlvl+EijuBRudDHOLDYJ8fCTLRoWD05OAk11UY7u4AmRbL7Vj1s\r\nfLgghBwrMwviWWDLKTb7Nkoc8k2G9Qt5i5myX/cv7kyIIEKWZ6vP0yWWp2nS/shh\r\nhWj+m5qsh2+JsfYJ+bJNLRdf0K/h3hWoOo8FW4sLiBSFQ1qr7BYyelR7p0HDS3vb\r\neaRDI36ZzyZEPIHmDVS3ML1NMHh4CnvTeGDvflQiSsb4FjKuNUcPfccNDNUYHVEC\r\nAwEAATANBgkqhkiG9w0BAQUFAAOCAQEAMlUjsEp2X/jW7EZUH00xV0x90sfaRtcv\r\nPStfCmSbwtmjE4z3fHbUUFHEnvPCq5Y9CQxfoyYDMiOpQJ+dmD6RcKeGLAHgrLq3\r\n60K7NkbD5kxbAa3l3K3JN/M0w5HFmHt0vjLfykPy76eE2RtyOVkb0f/klASWc1Oy\r\nNw05PuVFgXKU7PSnIbGknHC8MnBeGOcpPDdxGk3hplfx5cqThdZn122nrtbFgovM\r\n0u3FZVarHftlFH4L2hp6G4NUaVzkxgj7VYTEqwbD+ahP6iaqa0d3a++q0Py/hcld\r\n8anOrg5W+my2P/q0iAUOcOQ8iFfvbU5pAueEtgw8VVUfaYWOUX8czQ==\n-----END CERTIFICATE-----\n"
+            },
+            "isDefault": true,
+            "registeredProviders": [],
+            "environmentName": "AzureCloud",
+            "managementEndpointUrl": "https://management.core.windows.net"
+        }
+    ]
+}
