@@ -2,6 +2,9 @@ require_relative 'profile/subscription'
 
 module Azure
   class Profile
+    # The version of the azure-profile library
+    VERSION = '1.0.0'
+
     # The raw content of your publishsettings file
     attr_accessor :content
 
