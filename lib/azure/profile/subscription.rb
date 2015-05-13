@@ -63,6 +63,7 @@ module Azure
         @management_endpoint ||= DEFAULT_MANAGEMENT_ENDPOINT
         @source ||= 'ruby'
         @default ||= false
+        @environment_name ||= 'AzureCloud'
       end
     end
   end
