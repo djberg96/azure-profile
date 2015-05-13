@@ -55,6 +55,7 @@ namespace 'export' do
 end
 
 Rake::TestTask.new do |t|
+  t.test_files = ['spec/*.rb']
   t.verbose = true
   t.warning = true
 end
