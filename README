@@ -18,6 +18,9 @@ prof = Azure::Profile.new
 # Uses an existing publish settings file
 prof = Azure::Profile.new(:settings_file => '/path/to/publishsettingsfile')
 
+# Or the content of a settings file
+prof = Azure::Profile.new(:content => IO.read('/path/to/settingsfile'))
+
 p prof.subscriptions
 p prof.default_subscription
 
@@ -28,8 +31,15 @@ require 'azure/profile'
 prof = Azure::Profile.new
 dsub = prof.default.subscription
 
+# The azure gem currently demands a file
+pem_file = File.expand_path("~/.azure/azure.pem")
+
+unless File.exists?(pem_file)
+  File.open(pem_file, 'w'){ |fh| fh.write dsub.management_certificate }
+end
+
 Azure.configure do |config|
-  config.management_certificate = dsub.management_certificate
+  config.management_certificate = pem_file
   config.subscription_id = dsub.subscription_id
   config.management_endpoint = dsub.management_endpoint
 end
