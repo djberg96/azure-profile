@@ -8,6 +8,9 @@ require_relative 'profile/subscription'
 
 module Azure
   class Profile
+    # The raw content of your publishsettings file
+    attr_accessor :content
+
     # The path to your publishsettings file
     attr_accessor :settings_file
 
