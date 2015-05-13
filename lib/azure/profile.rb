@@ -154,7 +154,25 @@ end
 
 if $0 == __FILE__
   prof = Azure::Profile.new
-  #p prof.subscriptions
-  p prof.default_subscription.subscription_name
-  p prof.default_subscription.source
+  dsub = prof.default_subscription
+
+  require 'azure'
+
+  # At the moment, the azure gem doesn't accept a string
+  pem_file = File.expand_path('~/.azure/azure.pem')
+
+  unless File.exists?(pem_file)
+    File.open(pem_file, 'w'){ |fh| fh.write dsub.management_certificate }
+  end
+
+  Azure.configure do |config|
+    config.subscription_id = dsub.subscription_id
+    config.management_certificate = pem_file
+    config.management_endpoint = dsub.management_endpoint
+  end
+
+  vms = Azure::VirtualMachineManagementService.new
+  vm = vms.get_virtual_machine('win2k8-test1', 'win2k8-test1')
+
+  p vm
 end
