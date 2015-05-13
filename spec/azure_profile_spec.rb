@@ -12,6 +12,10 @@ describe "profile" do
     @settings_file = File.join(File.dirname(__FILE__), 'azure.publishsettings')
   end
 
+  it "has a VERSION constant set to the expected value" do
+    Azure::Profile::VERSION.should eq("1.0.0")
+  end
+
   after(:all) do
     @json_file = nil
     @settings_file = nil
