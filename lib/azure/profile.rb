@@ -1,9 +1,3 @@
-# TODO: Move requires into methods on an as-needed basis
-require 'json'
-require 'nokogiri'
-require 'openssl'
-require 'base64'
-
 require_relative 'profile/subscription'
 
 module Azure
@@ -115,6 +109,10 @@ module Azure
     # Parses a publishsettings file, or the raw XML.
     #
     def parse_settings(data, file = true)
+      require 'nokogiri'
+      require 'openssl'
+      require 'base64'
+
       if file
         doc = Nokogiri::XML(File.open(data))
       else
@@ -147,6 +145,8 @@ module Azure
     # ever used the command line interface.
     #
     def parse_json_info
+      require 'json'
+
       data = IO.read(File.expand_path(@json_file))
       json = JSON.parse(data, :create_additions => false)
 
