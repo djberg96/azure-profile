@@ -54,11 +54,16 @@ module Azure
     #   prof = Azure::Profile.new(:username => 'foo', :password => 'xxxxx')
     #   p prof.subscriptions
     #
+    #   # Pass a string or IO object
+    #   prof = Azure::Profile.new(:content => IO.read("/Users/foo/azure.publishsettings"))
+    #   prof = Azure::Profile.new(:content => File.open("/Users/foo/azure.publishsettings"))
+    #
     def initialize(options = {})
       @settings_file = options[:settings_file]
       @json_file     = options[:json_file] || "~/.azure/azureProfile.json"
       @username      = options[:username]
       @password      = options[:password]
+      @content       = options[:content]
 
       @subscriptions = []
 
@@ -67,7 +72,9 @@ module Azure
       @subscriptions << env if env
 
       if @settings_file
-        @subscriptions << parse_settings_file
+        @subscriptions << parse_settings(@settings_file)
+      elsif @content
+        @subscriptions << parse_settings(@content, false)
       else
         @subscriptions << parse_json_info
       end
@@ -102,21 +109,32 @@ module Azure
       sub
     end
 
-    # Parses a publishsettings file, if provided or downloaded.
+    # Parses a publishsettings file, or the raw XML.
     #
-    def parse_settings_file
-      doc = Nokogiri::XML(File.open(@settings_file))
+    def parse_settings(data, file = true)
+      if file
+        doc = Nokogiri::XML(File.open(data))
+      else
+        doc = Nokogiri::XML(data)
+      end
+
       xml = doc.xpath("//PublishData//PublishProfile//Subscription")
 
       sub = Subscription.new
 
-      sub.management_endpoint = xml['ServiceManagementUrl']
-      sub.subscription_id = xml['Id']
-      sub.subscription_name = xml['Name']
-      sub.source = @settings_file
+      sub.management_endpoint = xml.attribute('ServiceManagementUrl').value
+      sub.subscription_id = xml.attribute('Id').value
+      sub.subscription_name = xml.attribute('Name').value
+      sub.default = true
 
-      raw = xml['ManagementCertificate']
-      pkcs = OpenSSL::PKCS12.new(Base64.decode64(cert))
+      if @file
+        sub.source = @settings_file
+      else
+        sub.source = 'external'
+      end
+
+      raw = xml.attribute('ManagementCertificate').value
+      pkcs = OpenSSL::PKCS12.new(Base64.decode64(raw))
       sub.management_certificate = pkcs.certificate.to_pem + pkcs.key.to_pem
 
       sub
