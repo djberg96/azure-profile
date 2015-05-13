@@ -127,7 +127,7 @@ module Azure
       sub.subscription_name = xml.attribute('Name').value
       sub.default = true
 
-      if @file
+      if file
         sub.source = @settings_file
       else
         sub.source = 'external'
