@@ -13,7 +13,7 @@ describe "profile" do
   end
 
   it "has a VERSION constant set to the expected value" do
-    Azure::Profile::VERSION.should eq("1.0.0")
+    Azure::Profile::VERSION.should eq("1.0.1")
   end
 
   after(:all) do
