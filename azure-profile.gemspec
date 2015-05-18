@@ -2,9 +2,9 @@ require 'rubygems'
 
 Gem::Specification.new do |spec|
   spec.name      = 'azure-profile'
-  spec.version   = '1.0.0'
+  spec.version   = '1.0.1'
   spec.authors   = ['Daniel J. Berger', 'Bronagh Sorota']
-  spec.license   = 'Artistic 2.0'
+  spec.license   = 'Apache 2.0'
   spec.homepage  = 'http://github.com/djberg96/azure-profile'
   spec.summary   = 'An interface for Azure authentication information'
   spec.test_file = 'spec/azure_profile_spec.rb'
