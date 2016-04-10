@@ -4,6 +4,7 @@ MANIFEST
 README
 Rakefile
 azure-profile.gemspec
+lib/azure-profile.rb
 lib/azure/profile.rb
 lib/azure/profile/subscription.rb
 spec/azure_profile_spec.rb
