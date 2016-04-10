@@ -16,43 +16,43 @@ describe "subscription" do
   end
 
   it "has a subscription_id accessor" do
-    @sub.should respond_to(:subscription_id)
-    @sub.subscription_id.should be_nil
+    expect(@sub).to respond_to(:subscription_id)
+    expect(@sub.subscription_id).to be_nil
   end
 
   it "has a subscription_name accessor" do
-    @sub.should respond_to(:subscription_name)
-    @sub.subscription_name.should be_nil
+    expect(@sub).to respond_to(:subscription_name)
+    expect(@sub.subscription_name).to be_nil
   end
 
   it "has a management_certificate accessor" do
-    @sub.should respond_to(:management_certificate)
-    @sub.management_certificate.should be_nil
+    expect(@sub).to respond_to(:management_certificate)
+    expect(@sub.management_certificate).to be_nil
   end
 
   it "has a default accessor that defaults to false" do
-    @sub.should respond_to(:default)
-    @sub.default.should be_false
+    expect(@sub).to respond_to(:default)
+    expect(@sub.default).to be false
   end
 
   it "has a registered_providers accessor" do
-    @sub.should respond_to(:registered_providers)
-    @sub.registered_providers.should be_nil
+    expect(@sub).to respond_to(:registered_providers)
+    expect(@sub.registered_providers).to be_nil
   end
 
   it "has an environment_name accessor with a default value" do
-    @sub.should respond_to(:environment_name)
-    @sub.environment_name.should eq("AzureCloud")
+    expect(@sub).to respond_to(:environment_name)
+    expect(@sub.environment_name).to eq("AzureCloud")
   end
 
   it "has a management_endpoint accessor with a default value" do
-    @sub.should respond_to(:management_endpoint)
-    @sub.management_endpoint.should eq(@default_endpoint)
+    expect(@sub).to respond_to(:management_endpoint)
+    expect(@sub.management_endpoint).to eq(@default_endpoint)
   end
 
   it "has a source accessor with a default value" do
-    @sub.should respond_to(:source)
-    @sub.source.should eq("ruby")
+    expect(@sub).to respond_to(:source)
+    expect(@sub.source).to eq("ruby")
   end
 
   after(:each) do

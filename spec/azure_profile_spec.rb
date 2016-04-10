@@ -13,7 +13,7 @@ describe "profile" do
   end
 
   it "has a VERSION constant set to the expected value" do
-    Azure::Profile::VERSION.should eq("1.0.1")
+    expect(Azure::Profile::VERSION).to eq("1.0.2")
   end
 
   after(:all) do
@@ -27,13 +27,13 @@ describe "profile" do
     end
 
     it "has a settings_file accessor and it is set to the expected value" do
-      @profile.should respond_to(:settings_file)
-      @profile.settings_file.should eq(@settings_file)
+      expect(@profile).to respond_to(:settings_file)
+      expect(@profile.settings_file).to eq(@settings_file)
     end
 
     it "sets the default subscription" do
-      @profile.should respond_to(:default_subscription)
-      @profile.default_subscription.should be_kind_of(Azure::Profile::Subscription)
+      expect(@profile).to respond_to(:default_subscription)
+      expect(@profile.default_subscription).to be_kind_of(Azure::Profile::Subscription)
     end
 
     after(:all) do
@@ -47,13 +47,13 @@ describe "profile" do
     end
 
     it "has a json_file accessor and it is set to the expected value" do
-      @profile.should respond_to(:json_file)
-      @profile.json_file.should eq(@json_file)
+      expect(@profile).to respond_to(:json_file)
+      expect(@profile.json_file).to eq(@json_file)
     end
 
     it "sets the default subscription" do
-      @profile.should respond_to(:default_subscription)
-      @profile.default_subscription.should be_kind_of(Azure::Profile::Subscription)
+      expect(@profile).to respond_to(:default_subscription)
+      expect(@profile.default_subscription).to be_kind_of(Azure::Profile::Subscription)
     end
 
     after(:all) do
