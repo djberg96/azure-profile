@@ -91,7 +91,7 @@ This library possible courtesy of Red Hat, Inc.
 ## License
 Apache-2.0
 
-##= Warranty
+## Warranty
 This library is provided "as is" and without any express or
 implied warranties, including, without limitation, the implied
 warranties of merchantability and fitness for a particular purpose.
