@@ -1,13 +1,13 @@
-CHANGES.md
-LICENSE
-MANIFEST.md
-README.md
-Rakefile
-azure-profile.gemspec
-lib/azure-profile.rb
-lib/azure/profile.rb
-lib/azure/profile/subscription.rb
-spec/azure_profile_spec.rb
-spec/azure_subscription_spec.rb
-spec/azureProfile.json
-spec/azure.publishsettings
+* CHANGES.md
+* LICENSE
+* MANIFEST.md
+* README.md
+* Rakefile
+* azure-profile.gemspec
+* lib/azure-profile.rb
+* lib/azure/profile.rb
+* lib/azure/profile/subscription.rb
+* spec/azure_profile_spec.rb
+* spec/azure_subscription_spec.rb
+* spec/azureProfile.json
+* spec/azure.publishsettings
