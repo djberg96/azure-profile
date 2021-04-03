@@ -1,7 +1,7 @@
-CHANGES
+CHANGES.md
 LICENSE
-MANIFEST
-README
+MANIFEST.md
+README.md
 Rakefile
 azure-profile.gemspec
 lib/azure-profile.rb
